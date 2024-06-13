@@ -73,7 +73,7 @@ int main(int argc, char **argv)
     pre_Initializing_Input_Tensors(host_C, host_C_chk, size_C, host_A, size_A, host_B, size_B);
     end = clock();
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
-    printf("Time taken just to run kernels: %f", cpu_time_used);
+    printf("\nTime taken just to run kernels: %f\n", cpu_time_used);
 
     // Run the Kernels
     sd_t_d2_fusion_(size_idx_a, size_idx_b, size_idx_c, size_idx_d, host_C, host_A, host_B, 1, -1);
