@@ -40,4 +40,4 @@ opt_type="FLOAT"
 #
 #
 #
-python ${source_main} ${target_num} ${target_tc_list} ${target_num_config} ${opt_pre_computed} ${opt_type}
+python3 ${source_main} ${target_num} ${target_tc_list} ${target_num_config} ${opt_pre_computed} ${opt_type}

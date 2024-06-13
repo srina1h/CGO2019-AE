@@ -51,7 +51,9 @@ declare -a tccg_problem_sizes=(
     "24 16 16 24 16 16 24"    # 45
     "24 16 16 24 16 16 24"    # 46
     "24 16 16 24 16 16 24"    # 47
-    "24 16 16 24 16 16 24")   # 48
+    "24 16 16 24 16 16 24"    #48
+    "12 20 8 20" #49
+    "")   # 50
 
 #
 #   [1] to generate kernels for tccg benchmark (double-precision)
