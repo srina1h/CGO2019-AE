@@ -95,6 +95,19 @@ do
 done
 
 #
+#   [3] Total time
+#
+for number in $( seq $for_start $for_end )
+do
+    if [ ${number} -lt 10 ]
+    then
+        time ./k_fb_0${number} ${tccg_problem_sizes[$number]}
+    else
+        time ./k_fb_${number} ${tccg_problem_sizes[$number]}
+    fi
+done
+
+#
 #   [4] Post-Processing
 #
-python3 data-fb.py |& tee cogent_fb_results.txt
+# python3 data-fb.py |& tee cogent_fb_results.txt
