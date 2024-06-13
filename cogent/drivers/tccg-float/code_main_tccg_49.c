@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 // #define DEBUG_CORRECTNESS
 
@@ -21,6 +22,11 @@ int main(int argc, char **argv)
     float *host_A;
     float *host_B;
     int size_idx_a, size_idx_b, size_idx_c, size_idx_d, size_idx_e, size_idx_f, size_idx_g;
+
+    // timing
+
+    clock_t start, end;
+    double cpu_time_used;
 
     // Problem Size
     size_idx_a = 12;
@@ -63,7 +69,11 @@ int main(int argc, char **argv)
 
     //
     // Initialze "1" Output and "2 x 9" Inputs
+    start = clock();
     pre_Initializing_Input_Tensors(host_C, host_C_chk, size_C, host_A, size_A, host_B, size_B);
+    end = clock();
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken just to run kernels: %f", cpu_time_used);
 
     // Run the Kernels
     sd_t_d2_fusion_(size_idx_a, size_idx_b, size_idx_c, size_idx_d, host_C, host_A, host_B, 1, -1);
