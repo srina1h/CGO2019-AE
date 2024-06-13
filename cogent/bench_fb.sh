@@ -97,4 +97,4 @@ done
 #
 #   [4] Post-Processing
 #
-python data-fb.py |& tee cogent_fb_results.txt
+python3 data-fb.py |& tee cogent_fb_results.txt
