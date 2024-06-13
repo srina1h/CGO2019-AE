@@ -1,6 +1,6 @@
 #!/bin/bash
-for_start=40
-for_end=48
+for_start=49
+for_end=49
 
 declare -a tccg_problem_sizes=(
     "0"                         # 
