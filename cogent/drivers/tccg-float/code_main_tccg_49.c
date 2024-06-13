@@ -75,6 +75,7 @@ int main(int argc, char **argv)
     sd_t_d2_fusion_(size_idx_a, size_idx_b, size_idx_c, size_idx_d, host_C, host_A, host_B, 1, -1);
     gettimeofday(&t2, NULL);
     elapsedTime = (t2.tv_sec - t1.tv_sec);
+    elapsedTime += (t2.tv_usec - t1.tv_usec) / 100000.0;
     printf("\nTime taken just to run kernels: %f\n", elapsedTime);
 
 #ifdef DEBUG_CORRECTNESS
