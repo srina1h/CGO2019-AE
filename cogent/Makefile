@@ -4,7 +4,7 @@
 #	Tesla K80:  sm_37
 #	Tesla K40:  sm_35
 #
-CUDA_ARCH=sm_60
+CUDA_ARCH=sm_80
 DRIVER_TCCG=drivers/tccg
 DRIVER_FB=drivers/tccg-float
 DRIVER_CCSDT=drivers/ccsd_t
@@ -190,6 +190,12 @@ k_fb_47: $(DRIVER_FB)/code_main_tccg_47.c temp__47.cu
 	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_47.c temp__47.cu -Xptxas "-v -dlcm=cg" -o $@
 
 k_fb_48: $(DRIVER_FB)/code_main_tccg_48.c temp__48.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_48.c temp__48.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_fb_49: $(DRIVER_FB)/code_main_tccg_48.c temp__48.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_48.c temp__48.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_fb_50: $(DRIVER_FB)/code_main_tccg_48.c temp__48.cu
 	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_48.c temp__48.cu -Xptxas "-v -dlcm=cg" -o $@
 
 #

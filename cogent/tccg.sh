@@ -34,10 +34,10 @@ echo "==========================================================================
 source_main=tc_code_generator.py
 target_tc_list=input_strings/tccg/input_tccg_$1.in
 opt_pre_computed=-1                                 # 1: on, -1: off
-opt_type="DOUBLE"
-#opt_type="FLOAT"
+# opt_type="DOUBLE"
+opt_type="FLOAT"
 
 #
 #
 #
-python ${source_main} ${target_num} ${target_tc_list} ${target_num_config} ${opt_pre_computed} ${opt_type}
+python3 ${source_main} ${target_num} ${target_tc_list} ${target_num_config} ${opt_pre_computed} ${opt_type}
