@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     float *host_C, *host_C_chk;
     float *host_A;
     float *host_B;
-    int size_idx_a, size_idx_b, size_idx_c, size_idx_d, size_idx_e, size_idx_f, size_idx_g;
+    int size_idx_a, size_idx_b, size_idx_c, size_idx_d;
 
     // timing
     struct timeval t1, t2;
@@ -49,10 +49,10 @@ int main(int argc, char **argv)
 
     // # acd-ab-bcd
     // # t3 [a,c,d] += sum(b) * t2 [a,b] * v2 [b,c,d];
-    size_internal = size_idx_g;
-    size_C = size_idx_a * size_idx_b * size_idx_c * size_idx_d * size_idx_e * size_idx_f;
-    size_A = size_idx_g * size_idx_f * size_idx_b * size_idx_c;
-    size_B = size_idx_d * size_idx_e * size_idx_g * size_idx_a;
+    size_internal = size_idx_b;
+    size_C = size_idx_a * size_idx_c * size_idx_d;
+    size_A = size_idx_a * size_idx_b;
+    size_B = size_idx_b * size_idx_c * size_idx_d;
 
     //
     host_C = (float *)malloc(sizeof(float) * size_C);
@@ -77,11 +77,6 @@ int main(int argc, char **argv)
     elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
     elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
     printf("\nTime taken just to run kernels: %f ms\n", elapsedTime);
-
-#ifdef DEBUG_CORRECTNESS
-    // Correctness-Check
-    post_Correctness(host_C, host_C_chk, host_A, host_B, size_idx_a, size_idx_b, size_idx_c, size_idx_d, size_idx_e, size_idx_f, size_idx_g);
-#endif
 
     // Free
     free(host_C);
@@ -112,61 +107,4 @@ void pre_Initializing_Input_Tensors(float *h_C, float *h_C_chk, int size_C, floa
     {
         h_B[j] = ((float)rand() / RAND_MAX);
     }
-}
-
-//
-void post_Correctness(float *h_C, float *h_C_chk, float *h_A, float *h_B, int size_idx_a, int size_idx_b, int size_idx_c, int size_idx_d, int size_idx_e, int size_idx_f, int size_idx_g)
-{
-    // # abcdef-gfbc-dega
-    // t3 [a,16,b,16,c,16,d,16,e,16,f,16] += sum(g,16) * t2 [g,f,b,c] * v2 [d,e,g,a];
-    int size_C = size_idx_a * size_idx_b * size_idx_c * size_idx_d * size_idx_e * size_idx_f;
-
-    long long int tmp_ops = 0;
-    int ops = 0;
-    int idx_a, idx_b, idx_c, idx_d, idx_e, idx_f, idx_g;
-    for (idx_a = 0; idx_a < size_idx_a; idx_a++)
-        for (idx_b = 0; idx_b < size_idx_b; idx_b++)
-            for (idx_c = 0; idx_c < size_idx_c; idx_c++)
-                for (idx_d = 0; idx_d < size_idx_d; idx_d++)
-                    for (idx_e = 0; idx_e < size_idx_e; idx_e++)
-                        for (idx_f = 0; idx_f < size_idx_f; idx_f++)
-                        {
-                            ops = 0;
-                            for (idx_g = 0; idx_g < size_idx_g; idx_g++)
-                            {
-                                int tmp_r_idx = idx_a + (idx_b + (idx_c + (idx_d + (idx_e + (idx_f)*size_idx_e) * size_idx_d) * size_idx_c) * size_idx_b) * size_idx_a;
-                                h_C_chk[tmp_r_idx] += h_A[idx_g + (idx_f + (idx_b + (idx_c)*size_idx_b) * size_idx_f) * size_idx_g] *
-                                                      h_B[idx_d + (idx_e + (idx_g + (idx_a)*size_idx_g) * size_idx_e) * size_idx_d];
-
-                                ops++;
-                            }
-                            tmp_ops = tmp_ops + ops;
-                        }
-
-    printf("======================================= Correctness Check ==========================================\n");
-    float epsilon = 0.00001;
-    int diff = 0;
-    int same = 0;
-    int i;
-    for (i = 0; i < size_C; i++)
-    {
-        float check = h_C_chk[i] - h_C[i];
-        if (check < 0)
-            check *= -1;
-        if (check > epsilon)
-        {
-            diff++;
-            if (diff < 8)
-                printf("Index: %5d, (Host) %8.4f, (Dev.) %8.4f >> (Diff.) %8.4f\n", i, h_C_chk[i], h_C[i], check);
-        }
-        else
-        {
-            same++;
-        }
-    }
-
-    printf(" >>> PASSED: %'10d among %'10d in t3\n", same, size_C);
-    printf(" >>> ERROR : %'10d among %'10d in t3\n", diff, size_C);
-    printf(" >>> Total Operations: %'lld\n", tmp_ops);
-    printf("====================================================================================================\n");
 }
