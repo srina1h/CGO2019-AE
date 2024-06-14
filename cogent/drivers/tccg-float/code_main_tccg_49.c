@@ -63,7 +63,7 @@ int main(int argc, char **argv)
     printf("==========================================================================================================\n");
     printf(">>> acd-ab-bcd\n");
     printf(">>> t3 [a,c,d] += sum(b) * t2 [a,b] * v2 [b,c,d];\n");
-    printf(">>> Problem Size (a,c,d) and (b): (%2d,%2d,%2d,%2d,%2d,%2d) and (%2d)\n", size_idx_a, size_idx_c, size_idx_d, size_idx_b);
+    printf(">>> Problem Size (a,c,d) and (b): (%2d,%2d,%2d) and (%2d)\n", size_idx_a, size_idx_c, size_idx_d, size_idx_b);
     printf("==========================================================================================================\n");
 
     //
