@@ -439,6 +439,7 @@ def tc_gen_code_interface_RelatedKernels(f, l_combined_var_input_left, l_combine
     f.write("\n")
 
     # timing code
+    f.write("\tfloat kernelTime;\n")
     f.write("\tcudaEvent_t start, stop;\n")
     f.write("\tcudaEventCreate(&start);\n")
     f.write("\tcudaEventCreate(&stop);\n")
@@ -1375,7 +1376,7 @@ def tc_gen_code_interface_MemcpyOutput(f, l_external_index, opt_data_type):
     f.write("\tcudaEventRecord(stop, 0);\n")
     f.write("\tcudaEventSynchronize(stop);\n")
     f.write("\tcudaEventElapsedTime(&kernelTime, start, stop);\n")
-    f.write("\tprintf(\"Time to run kernels: %3.1f ms \n\", kernelTime);\n")
+    f.write("\tprintf(\"Time to run kernels: %3.1f ms \\n\", kernelTime);\n")
     f.write("\t// Copy the Result from Device to Host\n")
 
     #
