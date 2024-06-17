@@ -1,4 +1,4 @@
-# acde-ab-bcde
 # 32 20 8 8 12
+# acde-ab-bcde
 # t3 [a,c,d,e] += sum(b) * t2 [a,b] * v2 [b,c,d,e];
 t3 [a,32,c,8,d,8,e,12] += sum(b,20) * t2 [a,32,b,20] * v2 [b,20,c,8,d,8,e,12];
