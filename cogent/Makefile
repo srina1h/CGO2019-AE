@@ -198,6 +198,21 @@ k_fb_49: $(DRIVER_FB)/code_main_tccg_49.c temp__49.cu
 k_fb_50: $(DRIVER_FB)/code_main_tccg_50.c temp__50.cu
 	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_50.c temp__50.cu -Xptxas "-v -dlcm=cg" -o $@
 
+k_fb_51: $(DRIVER_FB)/code_main_tccg_51.c temp__51.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_51.c temp__51.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_fb_52: $(DRIVER_FB)/code_main_tccg_52.c temp__52.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_52.c temp__52.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_fb_53: $(DRIVER_FB)/code_main_tccg_53.c temp__53.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_53.c temp__53.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_fb_54: $(DRIVER_FB)/code_main_tccg_54.c temp__54.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_54.c temp__54.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_fb_55: $(DRIVER_FB)/code_main_tccg_55.c temp__55.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_55.c temp__55.cu -Xptxas "-v -dlcm=cg" -o $@
+
 #
 #
 #
