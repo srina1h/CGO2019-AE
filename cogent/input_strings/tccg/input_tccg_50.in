@@ -1,4 +1,4 @@
-# acd-ab-bcd
-# 12 20 8 20
-# t3 [a,c,d] += sum(b) * t2 [a,b] * v2 [b,c,d];
-t3 [a,12,c,8,d,20] += sum(b,20) * t2 [a,b] * v2 [b,c,d];
+# abde-abc-cde
+# 12 8 20 8 20
+# t3 [a,b,d,e] += sum(c) * t2 [a,b,c] * v2 [c,d,e];
+t3 [a,12,b,8,d,8,e,20] += sum(c,20) * t2 [a,12,b,8,c,20] * v2 [c,20,d,8,e,20];
