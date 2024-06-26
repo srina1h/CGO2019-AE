@@ -6,5 +6,5 @@
 
 namespace CudaHeader
 {
-    void sd_t_d2_fusion_(int size_a, int size_d, int size_b, int size_c, float *t3, float *t2, float *v2, int cond_kernel_1, int opt_register_transpose);
+    void sd_t_d2_fusion_(int, int, int, int, float *, float *, float *, int, int);
 }
