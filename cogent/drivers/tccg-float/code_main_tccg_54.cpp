@@ -9,9 +9,6 @@
 
 // #define DEBUG_CORRECTNESS
 
-void pre_Initializing_Input_Tensors();
-void post_Correctness();
-
 // 12 64 20 20
 // # ad-abc-dbc
 // # t3 [a,d] += sum(b,c) * t2 [a,b,c] * v2 [d,b,c];
