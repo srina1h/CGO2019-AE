@@ -6,6 +6,7 @@
 #include <string.h>
 #include <sys/time.h>
 #include <iostream>
+#include "cuda_header.cuh"
 
 // #define DEBUG_CORRECTNESS
 
@@ -93,7 +94,7 @@ int main(int argc, char **argv)
 
     // Run the Kernels
     gettimeofday(&t1, NULL);
-    sd_t_d2_fusion_(size_idx_a, size_idx_b, size_idx_c, size_idx_d, host_C, host_A, host_B, 1, -1);
+    CudaHeader::sd_t_d2_fusion_(size_idx_a, size_idx_b, size_idx_c, size_idx_d, host_C, host_A, host_B, 1, -1);
     gettimeofday(&t2, NULL);
     elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
     elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
