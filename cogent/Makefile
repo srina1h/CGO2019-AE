@@ -162,6 +162,27 @@ k_tccg_47: $(DRIVER_TCCG)/code_main_tccg_47.c temp__47.cu
 k_tccg_48: $(DRIVER_TCCG)/code_main_tccg_48.c temp__48.cu
 	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_TCCG)/code_main_tccg_48.c temp__48.cu -Xptxas "-v -dlcm=cg" -o $@
 
+k_tccg_49: $(DRIVER_TCCG)/code_main_tccg_49.c temp__49.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_TCCG)/code_main_tccg_49.c temp__49.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_tccg_50: $(DRIVER_TCCG)/code_main_tccg_50.c temp__50.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_TCCG)/code_main_tccg_50.c temp__50.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_tccg_51: $(DRIVER_TCCG)/code_main_tccg_51.c temp__51.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_TCCG)/code_main_tccg_51.c temp__51.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_tccg_52: $(DRIVER_TCCG)/code_main_tccg_52.c temp__52.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_TCCG)/code_main_tccg_52.c temp__52.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_tccg_53: $(DRIVER_TCCG)/code_main_tccg_53.c temp__53.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_TCCG)/code_main_tccg_53.c temp__53.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_tccg_54: $(DRIVER_TCCG)/code_main_tccg_54.c temp__54.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_TCCG)/code_main_tccg_54.c temp__54.cu -Xptxas "-v -dlcm=cg" -o $@
+
+k_tccg_55: $(DRIVER_TCCG)/code_main_tccg_55.c temp__55.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_TCCG)/code_main_tccg_55.c temp__55.cu -Xptxas "-v -dlcm=cg" -o $@
+
 #
 #	floats
 #

@@ -51,7 +51,14 @@ declare -a tccg_problem_sizes=(
     "24 16 16 24 16 16 24"    # 45
     "24 16 16 24 16 16 24"    # 46
     "24 16 16 24 16 16 24"    # 47
-    "24 16 16 24 16 16 24")    # 48
+    "24 16 16 24 16 16 24"    # 48
+    "12 20 8 20"              # 49
+    "12 8 20 8 20"            # 50
+    "32 20 8 8 12"            # 51
+    "4096 768 20"             # 52
+    "20 8 8 20 20"            # 53
+    "12 64 20 20"             # 54
+    "4096 12 12 8 300")       # 55
 
 #
 #   [1] to generate kernels for tccg benchmark (double-precision)
@@ -96,4 +103,4 @@ done
 #
 #   [4] Post-Processing
 #
-python data-tccg.py |& tee cogent_tccg_results.txt
+# python data-tccg.py |& tee cogent_tccg_results.txt
