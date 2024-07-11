@@ -1,6 +1,6 @@
 #!/bin/bash
-for_start=49
-for_end=55
+for_start=52
+for_end=56
 
 declare -a tccg_problem_sizes=(
     "0"                         # 
@@ -58,7 +58,8 @@ declare -a tccg_problem_sizes=(
     "4096 768 20"             # 52
     "20 8 8 20 20"            # 53
     "12 64 20 20"             # 54
-    "4096 12 12 8 300")       # 55
+    "4096 12 12 8 300"        # 55
+    "4096 20 768")
 
 #
 #   [1] to generate kernels for tccg benchmark (double-precision)
