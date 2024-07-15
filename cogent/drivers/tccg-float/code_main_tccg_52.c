@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     size_idx_c = 20;
 
     //
-    if (argc == 8)
+    if (argc == 4)
     {
         size_idx_a = atoi(argv[1]);
         size_idx_b = atoi(argv[2]);
