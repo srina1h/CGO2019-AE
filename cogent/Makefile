@@ -234,6 +234,9 @@ k_fb_54: $(DRIVER_FB)/code_main_tccg_54.c temp__54.cu
 k_fb_55: $(DRIVER_FB)/code_main_tccg_55.c temp__55.cu
 	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_55.c temp__55.cu -Xptxas "-v -dlcm=cg" -o $@
 
+k_fb_56: $(DRIVER_FB)/code_main_tccg_56.c temp__56.cu
+	nvcc -O3 -std=c++11 -arch=$(CUDA_ARCH) --use_fast_math $(DRIVER_FB)/code_main_tccg_56.c temp__56.cu -Xptxas "-v -dlcm=cg" -o $@
+
 #
 #
 #
